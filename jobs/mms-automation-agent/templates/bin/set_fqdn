@@ -27,10 +27,9 @@ hostnamectl set-hostname $fqdn
 
 # Check if fqdn matches what we want
 if [ "$(hostname -f)" = "${fqdn}" ]; then
-  echo "hostname matches: ${fqdn}"
   exit 0
 else
-  echo "hostname mismatch, expected ${fqdn}"
+  echo "hostname mismatch, expected ${fqdn}, found $(hostname -f)"
   echo "check /etc/hosts"
   exit 1
 fi
